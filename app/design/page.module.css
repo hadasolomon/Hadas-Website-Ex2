@@ -1,0 +1,171 @@
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to bottom, #C191FF, #F8EADD);
+  overflow: hidden;
+  position: relative;
+  flex-direction: column;
+}
+
+.logo-container {
+  width: 100%;
+  position: absolute;
+  transition: transform 0.8s ease-in;
+}
+
+.logo {
+  margin: 0 auto;
+  width: 40%;
+  object-fit: cover;
+  transition: transform 0.8s ease-in;
+}
+
+.logo-text {
+  width: 100%;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  color: #F1EEE7;
+  opacity: 0;
+  z-index: 1;
+  transition: opacity 1s ease-in;
+}
+
+.logo-text h2 {
+  font-size: 3rem;
+}
+
+.logo-text p {
+  font-size: 1.5rem;
+  margin-top: 0;
+}
+
+.logo-grow {
+  transform: scale(1.5);
+  opacity: 0.5;
+}
+
+.logo-slide-up {
+  transform: translateY(-150%);
+}
+
+.show-text {
+  opacity: 1;
+}
+
+.form-container {
+  height: 30vh;
+  position: absolute;
+  bottom: -100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120%;
+  transition: bottom 1s ease-in-out, transform 0.8s ease-in;
+}
+
+.slide-in {
+  bottom: 0;
+  animation: rotate 1s linear;
+  transform-origin: 100% 50%;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(-100deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.paper {
+  position: absolute;
+  width: 120%;
+  z-index: 1;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 80%;
+  max-width: 300px;
+  z-index: 2;
+}
+
+.form input {
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: none;
+  color: #0055A8;
+  border-bottom: 2px solid #0055A8;
+  border-radius: 5px;
+  background: transparent;
+  transition: border-color 0.3s;
+  outline: none;
+}
+
+.form input::placeholder {
+  color: #498FD4;
+}
+
+.form button {
+  width: 65%;
+  margin: 0 auto 5%;
+  padding: 0.6rem;
+  font-size: 1.2rem;
+  background: #149C7A;
+  color: #F1EEE7;
+  border: none;
+  border-radius: 50px;
+  transition: background 0.3s;
+}
+
+.form button:hover {
+  background: #F1EEE7;
+}
+
+.form p {
+  padding: 0;
+  margin: 0;
+  text-align: right;
+  font-size: 0.7rem;
+  color: #498FD4;
+}
+
+.additionalText {
+  opacity: 0;
+  text-align: center;
+  font-size: 2rem;
+  color: #F1EEE7;
+  margin-top: -30%;
+  transition: opacity 1s ease-in;
+}
+
+.additionalTextHidden {
+  opacity: 1;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form input:user-invalid {
+  color: red;
+}
+
+.form input:user-invalid + span::before {
+  content: "enter a valid email";
+  color: red;
+}
