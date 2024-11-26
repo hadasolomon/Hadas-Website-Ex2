@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "./page.module.css"; // CSS Module for styling
 
+
 function App() {
   const [showForm, setShowForm] = useState(false);
   const [isKeyboardOpen, setIsKeyboardOpen] = useState(false); // NEW STATE
@@ -35,6 +36,7 @@ function App() {
   }, []);
 
   return (
+    <>
     <div className={styles.App}>
       <div className={`${styles["logo-container"]}`}>
         <img
@@ -56,15 +58,17 @@ function App() {
         <img src="/paper.png" alt="Paper Background" className={styles.paper} />
         <form className={styles.form}>
     
-          <input type="email" placeholder="E-Mail"/>
+          <input id="email" type="email" placeholder="E-Mail"/>
           <span></span>
 
-          <input type="password" placeholder="Password" />
+          <input id="password" type="password" placeholder="Password" />
           <p>Forgot Your Password?</p>
           <button type="submit">Login</button>
         </form>
       </div>
     </div>
+    </>
+    
   );
 }
 
