@@ -12,14 +12,14 @@
 .logo-container {
   width: 100%;
   position: absolute;
-  transition: transform 0.5s ease-in;
+  transition: transform 0.5s ease-out;
 }
 
 .logo {
   margin: 0 auto;
   width: 40%;
   object-fit: cover;
-  transition: transform 0.5s ease-in;
+  transition: transform 0.5s ease-out;
 }
 
 .logo-text {
@@ -32,7 +32,7 @@
   color: #F1EEE7;
   opacity: 0;
   z-index: 1;
-  transition: opacity 0.5s ease-in;
+  transition: 0.3s linear;
 }
 
 .logo-text h2 {
@@ -65,12 +65,12 @@
   justify-content: center;
   align-items: center;
   width: 120%;
-  transition: bottom 0.5s ease-in-out, transform 0.5s ease-in;
+  transition: bottom 0.3s linear, transform 0.3s linear;
 }
 
 .slide-in {
   bottom: 0;
-  animation: rotate 0.5s linear;
+  animation: rotate 0.3s linear;
   transform-origin: 100% 50%;
 }
 
@@ -144,7 +144,7 @@
   font-size: 2rem;
   color: #F1EEE7;
   margin-top: -30%;
-  transition: opacity 1s ease-in;
+  transition: 0.3s linear;
 }
 
 .additionalTextHidden {
