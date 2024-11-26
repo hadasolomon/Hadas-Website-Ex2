@@ -1,75 +1,57 @@
 "use client";
+import "@/styles/reset.css";
+
 import React, { useState, useEffect } from "react";
 import styles from "./page.module.css"; // CSS Module for styling
 
+export default function App() {
 
-function App() {
-  const [showForm, setShowForm] = useState(false);
-  const [isKeyboardOpen, setIsKeyboardOpen] = useState(false); // NEW STATE
+  const[showElements, setShowElements] = useState(false);
+  const [emailInvalid, setEmailInvalid] = useState(false);
 
   useEffect(() => {
-    // Trigger the animation after 0.5 seconds
     const timer = setTimeout(() => {
-      setShowForm(true);
-    }, 200);
-
-    return () => clearTimeout(timer); // Cleanup the timer
+      setShowElements(true);
+    }, 300);
+    return () => clearTimeout(timer);
   }, []);
 
-  // NEW USEEFFECT FOR KEYBOARD DETECTION
-  useEffect(() => {
-    const initialHeight = window.innerHeight;
-
-    const handleResize = () => {
-      if (window.innerHeight < initialHeight) {
-        setIsKeyboardOpen(true); // Keyboard opened
-      } else {
-        setIsKeyboardOpen(false); // Keyboard closed
-      }
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize); // Cleanup listener
-    };
-  }, []);
-
+  const handleEmailBlur = (e) => {
+    const email = e.target.value;
+    setEmailInvalid(!email.includes("@"));
+  };
   return (
-    <>
-    <div className={styles.App}>
-      <div className={`${styles["logo-container"]}`}>
-        <img
-          src="/logo.png"
-          alt="Logo"
-          className={`${styles.logo} ${showForm ? `${styles["logo-slide-up"]} ${styles["logo-grow"]}` : ""}`}
-          />
-        <div className={`${styles["logo-text"]} ${showForm ? styles["show-text"] : ""}`}>
-          <h2>ORIGAMIZ</h2>
-          <p>The creative meditation</p>
+    <div className={styles.page_container}>
+      <div className={styles.top_container}>
+        <div className={styles.logo_container}>
+          <div className={`${styles.logo} ${showElements ? styles.logo_final : styles.logo_center}`}>
+            <img src="/logo.png" alt="Logo" />
+          </div>
+          <div className={`${styles.logo_text} ${showElements ? styles.show : ""}`}>
+            <h2>ORIGAMIZ</h2>
+            <p>The creative meditation</p>
+          </div>
+          </div>
+        <div className={`${styles.description_container} ${showElements ? styles.show : ""}`}>
+          <h2>Shape mindfulness,<br/>one fold at time.</h2>
         </div>
-        
       </div>
-      <div className={`${styles["additionalText"]} ${showForm ? styles["additionalTextHidden"] : ""}`}>
-        <p>Shape mindfulness,<br />one fold at a time.</p>
-      </div>
-      
-      <div className={`${styles["form-container"]} ${showForm ? styles["slide-in"] : ""}`}>
-        <img src="/paper.png" alt="Paper Background" className={styles.paper} />
-        <form className={styles.form}>
-    
-          <input id="email" type="email" placeholder="E-Mail"/>
-          <span></span>
-
-          <input id="password" type="password" placeholder="Password" />
-          <p>Forgot Your Password?</p>
-          <button type="submit">Login</button>
-        </form>
+      <div className={styles.bottom_container}>
+        <div className={`${styles.paper_form_container} ${showElements ? styles.paper_slide_in : ""}`}>
+          <img src="/paper.png" alt="Paper Background" className={styles.paper} />
+          <form className={styles.form}>
+          <span className={`${styles.error_message} ${emailInvalid ? styles.show : styles.hide}`}>
+            enter a valid email address</span>
+            <input id="email" type="email" placeholder="E-Mail" onBlur={handleEmailBlur} required />
+            <div className={styles.password_container}>
+            <input id="password" type="password" placeholder="Password" />
+            <span className={styles.passwordIcon}><img  src="/showPassword.png"/></span>
+            </div>
+            <p>Forgot Your Password?</p>
+            <button type="submit">Login</button>
+          </form>
+        </div>
       </div>
     </div>
-    </>
-    
   );
 }
-
-export default App;

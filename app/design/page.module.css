@@ -1,110 +1,127 @@
-.App {
+
+.page_container {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  text-align: center;
+  background: linear-gradient(to bottom, #C191FF, #F8EADD);
+  height: 100vh;
+  overflow: hidden;
+
+}
+.top_container{
+  display: flex;
+  flex-direction: column; /* Stack the two top sections vertically */
+  flex-grow: 1; /* Take all the remaining space at the top */
+  height: 50vh;
+}
+.logo_container {
+  display: flex;
+  flex-direction: column; /* Stack the two top sections vertically */
+  flex-grow: 1; /* Take all the remaining space at the top */
+  position: relative;
+}
+.logo{
+  width: 40%;
+  z-index: 1;
+  transition: all 0.5s ease-in-out; /* Smooth transition for all properties */
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background: linear-gradient(to bottom, #C191FF, #F8EADD);
-  overflow: hidden;
-  position: relative;
-  flex-direction: column;
 }
-
-.logo-container {
-  width: 100%;
+.logo_center {
   position: absolute;
-  transition: transform 0.5s ease-out;
-}
-
-.logo {
-  margin: 0 auto;
-  width: 40%;
-  object-fit: cover;
-  transition: transform 0.5s ease-out;
-}
-
-.logo-text {
-  width: 100%;
-  position: absolute;
-  top: -90%;
+  top: 150%;
   left: 50%;
-  text-align: center;
+  transform: translate(-50%, -50%) scale(0.8);
+  opacity: 1;
+}
+.logo_final {
+  position: absolute;
+  top: 30%; /* Adjust as needed for the final position */
+  left: 50%; /* Adjust as needed for the final position */
+  transform: translate(-50%, 0) scale(1);
+  opacity: 0.5;
+}
+.logo_text{
+  position: absolute;
+  top: 75%;
+  left: 50%;
   transform: translate(-50%, -50%);
   color: #F1EEE7;
   opacity: 0;
-  z-index: 1;
-  transition: 0.3s linear;
+  z-index: 2;
+  transition: opacity 0.3s ease-in-out;
 }
-
-.logo-text h2 {
-  font-size: 2.2rem;
+.description_container {
+  display: flex;
+  flex-direction: column; /* Stack the two top sections vertically */
+  flex-grow: 1; /* Take all the remaining space at the top */
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  color: #F1EEE7;
 }
-
-.logo-text p {
-  font-size: 1.3rem;
-  margin-top: 0;
-}
-
-.logo-grow {
-  transform: scale(1.5);
-  opacity: 0.5;
-}
-
-.logo-slide-up {
-  transform: translateY(-150%);
-}
-
-.show-text {
-  opacity: 1;
-}
-
-.form-container {
-  height: 30vh;
-  position: absolute;
-  bottom: -100%;
+.top_section {
+  flex: 1; /* Ensure the sections divide space equally */
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 120%;
-  transition: bottom 0.3s linear, transform 0.3s linear;
+  font-size: 1.5rem;
 }
 
-.slide-in {
-  bottom: 0;
-  animation: rotate 0.3s linear;
-  transform-origin: 100% 50%;
+
+.show{
+  opacity: 1;
+}
+.hide {
+  opacity: 0;
+  visibility: hidden;
+}
+.logo_text p {
+  margin-top: 0; /* Remove the margin above the p */
 }
 
-@keyframes rotate {
-  from {
-    transform: rotate(-100deg);
-  }
-  to {
-    transform: rotate(0deg);
-  }
+.bottom_container {
+  height: 40vh; /* Fixed height for the bottom section */
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
 }
 
-.paper {
+.paper_form_container {
   position: absolute;
-  width: 120%;
-  z-index: 1;
-}
-
-.form {
+  bottom: -1000%; /* Initial position outside the frame */
+  left: 50%;
+  top : 0;
+  width: 100%;
+  transform: translate(-50%, 80%) rotate(-45deg);
+  transition: bottom 0.3s ease-in-out, transform 0.8s ease-in-out; /* Smooth transition */
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  width: 80%;
-  max-width: 300px;
-  z-index: 2;
-}
+  align-items: center;
 
+}
+.paper_slide_in {
+  bottom: 0; /* Final position inside the frame */
+  transform: translate(-50%, -30%) rotate(0deg); /* Final angle */
+}
+.form {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  top : 30%;
+}
 .form input {
-  padding: 0.8rem;
+  width: 65%;
+  padding: 0.5rem;
   font-size: 1rem;
   border: none;
   color: #0055A8;
   border-bottom: 2px solid #0055A8;
-  border-radius: 5px;
+  border-radius: 0;
   background: transparent;
   transition: border-color 0.3s;
   outline: none;
@@ -113,59 +130,56 @@
 .form input::placeholder {
   color: #498FD4;
 }
-
 .form button {
-  width: 65%;
-  margin: 0 auto 5%;
-  padding: 0.6rem;
-  font-size: 1.2rem;
-  background: #149C7A;
+  background-color: #149C7A;
   color: #F1EEE7;
-  border: none;
   border-radius: 50px;
-  transition: background 0.3s;
+  font-size: 1.2rem;
+  padding: 0.6rem;
+  width: 55%;
+  margin-top: 2rem; 
 }
 
 .form button:hover {
   background: #F1EEE7;
 }
 
-.form p {
-  padding: 0;
+.form p{
+  width: 65%;
+  color: #498FD4;
+  font-size: 1rem;
   margin: 0;
   text-align: right;
-  font-size: 0.7rem;
-  color: #498FD4;
 }
 
-.additionalText {
-  opacity: 0;
-  text-align: center;
-  font-size: 2rem;
-  color: #F1EEE7;
-  margin-top: -30%;
-  transition: 0.3s linear;
-}
+.error_message {
+  content: "";
+  width: 65%;
+  color: red;
+  font-size: 0.9rem;
+  text-align: left; /* Align the error message to the left */
+  padding-left: 0.5rem;
 
-.additionalTextHidden {
-  opacity: 1;
 }
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 .form input:user-invalid {
   color: red;
 }
 
-.form input:user-invalid + span::before {
-  content: "enter a valid email";
-  color: red;
+.password_container{
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.passwordIcon{
+  width: 65%;
+  display: flex;
+  position: absolute;
+  align-items: center;
+}
+.passwordIcon img{
+  position: absolute;
+  right: 0;
+  width: 2rem;
 }
