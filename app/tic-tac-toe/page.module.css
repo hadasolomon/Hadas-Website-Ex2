@@ -1,3 +1,12 @@
+.game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw; /* Add this line to ensure the parent takes full width of the viewport */
+  height: 50vh;
+  background: linear-gradient(to bottom, #C191FF, #F8EADD);
+}
+
 .square {
   background: #fff;
   border: 1px solid #999;
@@ -17,16 +26,28 @@
   clear: both;
   content: '';
   display: table;
+
 }
 
 .status {
   margin-bottom: 10px;
 }
-.game {
-  display: flex;
-  flex-direction: row;
-}
+
 
 .game_info {
   margin-left: 20px;
+}
+
+.pink{
+  background-color: pink;
+}
+
+.yellow{
+  background-color: yellow;
+}
+
+.winner{
+  color: rgb(205, 92, 92);
+  font-size: 3rem;
+  font-weight: bold;
 }

@@ -1,0 +1,37 @@
+
+.page_container {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  text-align: center;
+  background: linear-gradient(to bottom, #C191FF, #F8EADD);
+  height: 100vh;
+
+}
+
+.logo_container {
+  height: 30vh;
+  display: flex;
+  flex-direction: column; /* Stack the two top sections vertically */
+  flex-grow: 1; /* Take all the remaining space at the top */
+}
+.description_container {
+  height: 10vh;
+  display: flex;
+  flex-direction: column; /* Stack the two top sections vertically */
+  flex-grow: 1; /* Take all the remaining space at the top */
+}
+.top_section {
+  flex: 1; /* Ensure the sections divide space equally */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+}
+
+.bottom_container {
+  height: 30vh; /* Fixed height for the bottom section */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+}
