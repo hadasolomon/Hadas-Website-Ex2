@@ -12,35 +12,35 @@
 .logo-container {
   width: 100%;
   position: absolute;
-  transition: transform 0.8s ease-in;
+  transition: transform 0.5s ease-in;
 }
 
 .logo {
   margin: 0 auto;
   width: 40%;
   object-fit: cover;
-  transition: transform 0.8s ease-in;
+  transition: transform 0.5s ease-in;
 }
 
 .logo-text {
   width: 100%;
   position: absolute;
-  top: 60%;
+  top: -90%;
   left: 50%;
   text-align: center;
   transform: translate(-50%, -50%);
   color: #F1EEE7;
   opacity: 0;
   z-index: 1;
-  transition: opacity 1s ease-in;
+  transition: opacity 0.5s ease-in;
 }
 
 .logo-text h2 {
-  font-size: 3rem;
+  font-size: 2.2rem;
 }
 
 .logo-text p {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   margin-top: 0;
 }
 
@@ -65,12 +65,12 @@
   justify-content: center;
   align-items: center;
   width: 120%;
-  transition: bottom 1s ease-in-out, transform 0.8s ease-in;
+  transition: bottom 0.5s ease-in-out, transform 0.5s ease-in;
 }
 
 .slide-in {
   bottom: 0;
-  animation: rotate 1s linear;
+  animation: rotate 0.5s linear;
   transform-origin: 100% 50%;
 }
 

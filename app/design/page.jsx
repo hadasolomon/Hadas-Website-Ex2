@@ -10,7 +10,7 @@ function App() {
     // Trigger the animation after 0.5 seconds
     const timer = setTimeout(() => {
       setShowForm(true);
-    }, 500);
+    }, 200);
 
     return () => clearTimeout(timer); // Cleanup the timer
   }, []);
@@ -36,13 +36,12 @@ function App() {
 
   return (
     <div className={styles.App}>
-      <div className={`${styles["logo-container"]} ${showForm ? styles["logo-slide-up"] : ""}`}>
+      <div className={`${styles["logo-container"]}`}>
         <img
           src="/logo.png"
           alt="Logo"
-          className={`${styles.logo} ${showForm ? styles["logo-grow"] : ""}`}
-        />
-        
+          className={`${styles.logo} ${showForm ? `${styles["logo-slide-up"]} ${styles["logo-grow"]}` : ""}`}
+          />
         <div className={`${styles["logo-text"]} ${showForm ? styles["show-text"] : ""}`}>
           <h2>ORIGAMIZ</h2>
           <p>The creative meditation</p>
