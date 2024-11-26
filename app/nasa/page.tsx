@@ -34,8 +34,9 @@ async function getNasaData(count : number) {
   const response = await fetch('https://api.nasa.gov/planetary/apod?api_key='+ process.env.NASA_API_KEY + '&count=' + count);
   // 2. Get the JSON data from the response
   const jsonData = await response.json();
-  const nasaData = jsonData.map((item: NasaData) => 
-    <NasaImages key={item.url} date={item.date} explanation={item.explanation} title={item.title} url={item.url} />)
+  const nasaData = Array.isArray(jsonData) ? jsonData.map((item: NasaData) => 
+    <NasaImages key={item.url} date={item.date} explanation={item.explanation} title={item.title} url={item.url} />
+  ) : [];
   return (
     <div className={styles.nasa_container}>
       {nasaData}
