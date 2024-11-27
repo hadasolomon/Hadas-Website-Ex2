@@ -1,6 +1,4 @@
 "use client";
-import "@/styles/reset.css";
-
 import React, { useState, useEffect } from "react";
 import styles from "./page.module.css"; // CSS Module for styling
 
