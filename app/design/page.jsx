@@ -45,7 +45,7 @@ export default function App() {
             <input id="email" type="email" placeholder="E-Mail" onBlur={handleEmailBlur} required />
             <div className={styles.password_container}>
             <input id="password" type="password" placeholder="Password" />
-            <span className={styles.passwordIcon}><img  src="/showPassword.png"/></span>
+            <span className={styles.passwordIcon}><img src="/showPassword.png" alt="Show Password" /></span>
             </div>
             <p>Forgot Your Password?</p>
             <button type="submit">Login</button>
