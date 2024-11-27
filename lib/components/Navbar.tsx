@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { APP_NAME, COURSE_GITHUB, DEMOS_ENABLED } from "../config";
-import styles from "./Navbar.module.css"; // Import CSS module for styling
+import styles from "./Navbar.module.css"; 
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

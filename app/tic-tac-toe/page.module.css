@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100vw; /* Add this line to ensure the parent takes full width of the viewport */
+  width: 100vw; 
   height: 50vh;
   background: linear-gradient(to bottom, #C191FF, #F8EADD);
 }
