@@ -130,14 +130,24 @@
 .form input::placeholder {
   color: #498FD4;
 }
-.form button {
+.button_link {
+  text-decoration: none; /* Remove default link styling */
+  display: flex; /* Ensure it behaves like a block element */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  width: 55%; /* Match button width */
+  margin-top: 2rem; /* Match button margin */
+}
+
+.login_button {
   background-color: #149C7A;
   color: #F1EEE7;
   border-radius: 50px;
   font-size: 1.2rem;
   padding: 0.6rem;
-  width: 55%;
-  margin-top: 2rem; 
+  width: 100%; /* Take full width from parent */
+  border: none;
+  cursor: pointer;
 }
 
 .form button:hover {

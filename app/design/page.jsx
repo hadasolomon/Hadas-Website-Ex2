@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import styles from "./page.module.css"; // CSS Module for styling
+import Link from "next/link";
 
 export default function App() {
 
@@ -46,7 +47,11 @@ export default function App() {
             <span className={styles.passwordIcon}><img src="/showPassword.png" alt="Show Password" /></span>
             </div>
             <p>Forgot Your Password?</p>
-            <button type="submit">Login</button>
+            <Link href="/design/home" className={styles.button_link}>
+              <button type="button" className={styles.login_button}>
+                Login
+              </button>
+            </Link>
           </form>
         </div>
       </div>
